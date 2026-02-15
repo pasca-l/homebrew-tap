@@ -3,33 +3,43 @@ cask "database-connection-manager" do
   name "database-connection-manager"
   desc ""
   homepage ""
-  version "0.1.4"
+  version "0.1.5"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
   binary "dbcm"
+  depends_on formula: [
+      "libpq",
+      "mysql-client",
+    ]
 
   on_macos do
     on_intel do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Darwin_x86_64.tar.gz"
-      sha256 "881b18343453b71d086d58cb4eaff44dbfd552996da11f6e2e6244e389d5fcd8"
+      sha256 "ee37fc2195248b3228380600f0db64944a2ceac911eb761b012188b359595827"
     end
     on_arm do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Darwin_arm64.tar.gz"
-      sha256 "f6d95e9b49694d54df99c9b29aeff385709a83f71d30e13a324e5ed7ac95b0f7"
+      sha256 "a5a9771cc4a9ec484239879e06537567d30eff8c5990cc2e7402b7acb6798706"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Linux_x86_64.tar.gz"
-      sha256 "85b4d214a57a464a9592466bc5d78f2fa4b8cd5503362888ba9a7dea01dc5558"
+      sha256 "232541943ae9cc307bdff461f4a655fcbea35895c26d053cecd97d1a2b0a8582"
     end
     on_arm do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Linux_arm64.tar.gz"
-      sha256 "df825fcea79fd3fbcd0c70ddcaa11d2c2f678732a87b1311f5693d7c4c84cb44"
+      sha256 "f9e252e9ade4fba20769df9cd089200681c4268e22d86485e5aabdc3df976cf4"
+    end
+  end
+
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/dbcm"]
     end
   end
 
