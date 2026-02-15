@@ -3,7 +3,7 @@ cask "database-connection-manager" do
   name "database-connection-manager"
   desc ""
   homepage ""
-  version "0.1.1"
+  version "0.1.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "database-connection-manager" do
   on_macos do
     on_intel do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Darwin_x86_64.tar.gz"
-      sha256 "7721f782c7a423502aea97f1592e6c8ca3c511d5c5b0a46f99c15cbc9fea1951"
+      sha256 "faa4a4f13f5cc0935eecfd5b97f15c14712e93034c0aa0b7f823584bb303cd6d"
     end
     on_arm do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Darwin_arm64.tar.gz"
-      sha256 "109e1d0b8ffc63480fc2b4bcb1acb76b782b821730d6e84dcf1ef5d6c08da33c"
+      sha256 "1c42e9d1b92abd1cf827fdd71213e3f87e654d23456b601b032827225922051b"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Linux_x86_64.tar.gz"
-      sha256 "157391faeefea603fd39450c50e09e0be9a9bb6e787cbf371c71bcb14f02a075"
+      sha256 "9a3a6678b071550f06cf137c2e9de2ecb54162161a2f8e6b1f8a3c94451423d4"
     end
     on_arm do
       url "https://github.com/pasca-l/database-connection-manager/releases/download/v#{version}/database-connection-manager_Linux_arm64.tar.gz"
-      sha256 "2727810189a883e7e2dbd0cb5593f10704d575fe86749985fc5785a81f41a700"
+      sha256 "116bdcbe4d7cb549a2625c01ddb86a7fbcb29bb7eec275c1f0ca085d9aa54753"
     end
   end
 
